@@ -1,0 +1,75 @@
+.header {
+    position: relative;
+    width: 100vw;
+    height: 70px;
+    background: #50976a;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+}
+
+.cal {
+    position: relative;
+    width: 100vw;
+    height: calc(100vh - 70px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .cal_container {
+        width: 75%;
+        height: calc(100% - 100px);
+        display: flex;
+        border: 3px solid #000;
+        border-radius: 10px;
+        .calendar {
+            width: 66.6%;
+            height: 100%;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            .settings {
+                height: 35px;
+                width: 100%;
+            }
+            .dates {
+                box-shadow: 0px 0px 5px rgba(0, 0, 0, 1);
+                .row {
+                    display: grid;
+                    grid-template-columns: repeat(7, 1fr);
+                    .week {
+                        border: 1px solid #222;
+                        text-align: center;
+                        &:nth-child(1) {
+                            color: #f00;
+                        }
+                        &:nth-child(7) {
+                            color: #00f;
+                        }
+                    }
+                    .day {
+                        border: 1px solid #222;
+                        height: 65px;
+                        &:nth-child(1) {
+                            color: #f00;
+                        }
+                        &:nth-child(7) {
+                            color: #00f;
+                        }
+                        &.grayed {
+                            color: gray;
+                        }
+                        span {
+                            display: inline-block;
+                            padding: 0 5px;
+                        }
+                    }
+                }
+            }
+        }
+        .box {
+            width: 33.3%;
+            height: 100%;
+            border-left: 3px solid #000;
+            padding: 10px;
+        }
+    }
+}
