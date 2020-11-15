@@ -29,6 +29,61 @@
             .settings {
                 height: 35px;
                 width: 100%;
+                padding: 0 10px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                .arrow {
+                    cursor: pointer;
+                    i {
+                        font-size: 30px;
+                    }
+                }
+                .datepicker {
+                    position: relative;
+                    width: 240px;
+                    .dateText {
+                        position: relative;
+                        text-align: center;
+                        line-height: 35px;
+                        font-size: 20px;
+                        user-select: none;
+                        &:hover {
+                            background: #F3F3F3;
+                            box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+                        }
+                    }
+                    .picker {
+                        display: none;
+                        position: absolute;
+                        top: 100%;
+                        left: 0;
+                        right: 0;
+                        background: #5d5c58;
+                        color: #fff;
+                        padding: 10px;
+                        .year {
+                            display: flex;
+                            justify-content: space-around;
+                            align-items: center;
+                        }
+                        .months {
+                            display: grid;
+                            grid-template-columns: repeat(4, 1fr);
+                            div {
+                                text-align: center;
+                                cursor: pointer;
+                                border: 2px solid transparent;
+                                &:hover {
+                                    border: 2px solid #9c99a2;
+                                }
+                                &.selected {
+                                    background: #9c99a2;
+                                }
+                            }
+                        }
+                    }
+                }
             }
             .dates {
                 box-shadow: 0px 0px 5px rgba(0, 0, 0, 1);
@@ -55,7 +110,10 @@
                             color: #00f;
                         }
                         &.grayed {
-                            color: gray;
+                            color: #80808087;
+                        }
+                        &.selected {
+                            background: #e2f4de;
                         }
                         span {
                             display: inline-block;
