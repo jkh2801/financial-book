@@ -8,7 +8,7 @@ import LoginPage from './components/LoginPage'
 function App() {
   return (
     <div className="App">
-      <Router>
+      <Router basename="financial-book">
         <Route path="/" exact component = {Home} ></Route>
         <Route path="/calendar" component = {Calendar} ></Route>
         <Route path="/chart" component = {Chart} ></Route>
