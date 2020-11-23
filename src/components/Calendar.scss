@@ -1,11 +1,3 @@
-.header {
-    position: relative;
-    width: 100vw;
-    height: 70px;
-    background: #50976a;
-    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
-}
-
 .cal {
     position: relative;
     width: 100vw;
@@ -20,6 +12,7 @@
         border: 3px solid #000;
         border-radius: 10px;
         .calendar {
+            position: relative;
             width: 66.6%;
             height: 100%;
             padding: 10px;
@@ -48,9 +41,11 @@
                         line-height: 35px;
                         font-size: 20px;
                         user-select: none;
+                        transition: 0.5s;
                         &:hover {
                             background: #F3F3F3;
                             box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+                            cursor: pointer;
                         }
                     }
                     .picker {
@@ -62,6 +57,7 @@
                         background: #5d5c58;
                         color: #fff;
                         padding: 10px;
+                        box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
                         .year {
                             display: flex;
                             justify-content: space-around;
@@ -81,6 +77,15 @@
                                     background: #9c99a2;
                                 }
                             }
+                        }
+                    }
+                    &.selected {
+                        .dateText {
+                            box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+                            cursor: pointer;
+                        }
+                        .picker {
+                            display: block;
                         }
                     }
                 }
@@ -119,7 +124,67 @@
                             display: inline-block;
                             padding: 0 5px;
                         }
+                        div {
+                            text-align: center;
+                            font-size: 12px;
+                            color: #222;
+                            font-weight: 700;
+                            &.green {
+                                color: #50976a;
+                            }
+                            &.red {
+                                color: #da463c;
+                            }
+                            &.grayed {
+                            display: none;
+                            }
+                        }
                     }
+                }
+            }
+            .chart {
+                position: absolute;
+                width: 0;
+                height: calc(100% - 20px);
+                background: rgba(0, 0, 0, 0.8);
+                transition: 1s linear;
+                z-index: 1;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                .btnBx {
+                    padding: 10px;
+                    cursor: pointer;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    display: none;
+                    z-index: 2;
+                }
+                &.active {
+                    width: calc(100% - 20px);
+                    .btnBx {
+                        display: inline-block;
+                        .btn {
+                            position: relative;
+                            border: 2px solid #fff;
+                            border-radius: 10px;
+                            padding: 0 5px;
+                            cursor: pointer;
+                            transition: 0.5s;
+                            color: #fff;
+                            margin-left: 5px;
+                            &:hover {
+                                background: #2894ff;
+                            }
+                            &.active {
+                                background: #2894ff;
+                            }
+                        }
+                    }
+                }
+                > div {
+                    height: 100%;
                 }
             }
         }
@@ -128,6 +193,144 @@
             height: 100%;
             border-left: 3px solid #000;
             padding: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            .setBx {
+                height: 35px;
+                width: 100%;
+                text-align: center;
+                line-height: 35px;
+                .chartBx {
+                    position: absolute;
+                    cursor: pointer;
+                    border: 2px solid #222;
+                    border-radius: 10px;
+                    padding: 0 5px;
+                    transition: 0.5s;
+                    &:hover {
+                        background: #2894ff;
+                        color: #fff;
+                    }
+                }
+            }
+            .infoBx {
+                height: 70%;
+                width: 100%;
+                padding: 10px;
+                overflow: auto;
+                .info {
+                    padding: 5px;
+                    display: flex;
+                    justify-content: space-between;
+                    transition: 0.5s;
+                    overflow: auto;
+                    &:hover {
+                        background: #F3F3F3;
+                        box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+                        cursor: pointer;
+                    }
+                }
+            }
+            .btnBx {
+                position: relative;
+                height: 15%;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                button {
+                    border: none;
+                    padding: 5px 20px;
+                    background: #2894ff;
+                    color: #fff;
+                    cursor: pointer;
+                }
+                .cBx {
+                    position: absolute;
+                    width: 100%;
+                    height: 0;
+                    background: #5d5c58;
+                    bottom: 0;
+                    transition: 0.5s ease-in-out;
+                    overflow: hidden;
+                    form {
+                        width: 100%;
+                        height: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        .row {
+                            position: relative;
+                            input[type="text"] {
+                                position: absolute;
+                                right: 0;
+                                color: #fff;
+                                letter-spacing: 1px;
+                                border: none;
+                                outline: none;
+                                background: transparent;
+                                border-bottom: 1px solid #fff;
+                            }
+                            input[type="number"] {
+                                position: absolute;
+                                right: 0;
+                                color: #fff;
+                                letter-spacing: 1px;
+                                border: none;
+                                outline: none;
+                                background: transparent;
+                                border-bottom: 1px solid #fff;
+                            }
+                            label {
+                                position: relative;
+                                top: 0;
+                                left: 0;
+                                letter-spacing: 1px;
+                                color: #fff;
+                                pointer-events: none;
+                                transition: 0.5s;
+                                
+                            }
+                            &:nth-child(2) {
+                                display: flex;
+                                justify-content: space-around;
+                                align-items: center;
+                                label {
+                                    pointer-events: auto;
+                                    cursor: pointer;
+                                    padding: 0 10px;
+                                    border: 1px solid #aaa;
+                                    border-radius: 10px;
+                                    opacity: 0.4;
+                                    input[type="radio"] {
+                                        display: none;
+                                    }
+                                    &.checked {
+                                        background: #fff;
+                                        color: #5d5c58;
+                                        opacity: 1;
+                                        font-weight: 700;
+                                    }
+                                }
+                            }
+                            &:nth-child(4) {
+                                display: flex;
+                                justify-content: space-around;
+                                align-items: center;
+                                button[type="submit"].none {
+                                    display: none;
+                                }
+                            }
+                    }
+                    }
+                    &.active {
+                        height: 250%;
+                        padding: 10px;
+                    }
+                }
+            }
+            
         }
     }
 }

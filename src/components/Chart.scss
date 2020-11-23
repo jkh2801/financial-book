@@ -1,0 +1,43 @@
+.chart {
+    position: relative;
+    width: 100vw;
+    height: calc(100vh - 70px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .chart_container {
+        position: relative;
+        width: 75%;
+        height: calc(100% - 100px);
+        display: flex;
+        border: 3px solid #000;
+        border-radius: 10px;
+        .chart_area {
+            padding: 10px;
+            height: 100%;
+            width: 100%;
+            > div {
+                height: 100%;
+                width: 100%;
+            }
+        }
+        .selectBx {
+            position: absolute;
+            left: 100%;
+            top: 30px;
+            width: 80px;
+            height: 40px;
+            border-radius: 0 10px 10px 0;
+            border: 2px solid #222;
+            border-left: none;
+            background: #e2f4de;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            select {
+                border: none;
+                background: #fff;
+            }
+        }
+    }
+}

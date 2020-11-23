@@ -1,46 +1,95 @@
-.nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 20vw;
-    height: 100vh;
-    z-index: 10000;
-    display: flex;
-    justify-content: flex-start;
-    align-self: center;
+.header {
+    position: relative;
+    width: 100vw;
+    height: 70px;
     background: #e2f4de;
-    transition: 1s ease-in-out;
-    transform: translateX(-20vw);
-    ul {
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+    .notice {
         position: relative;
         width: 100%;
-        display: flex;
-        flex-direction: column;
+        height: 25px;
+        background: rgba(0, 0, 0, 0.5);
+        overflow: hidden;
+        .text {
+            position: absolute;
+            color: #fff;
+            transition: 0.5s;
+            left: 100%;
+            animation: animateText 30s linear infinite;
+        }
+        .text2 {
+            animation-delay: 15s;
+        }
+        &.hide {
+            background: transparent;
+        }
+    }
+    .nav {
+        position: relative;
+        width: 75%;
+        height: calc(100% - 25px);
+        margin: 0 auto;
         padding: 10px;
-        li {
+        ul {
             position: relative;
-            list-style: none;
-            margin: 5px 0;
-            a {
-                text-decoration: none;
-                font-weight: 300;
-                color: #222;
+            width: 100%;
+            display: flex;
+            li {
+                position: relative;
+                list-style: none;
+                margin: 0 10px;
+                &::before {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    bottom: -10px;
+                    width: 0px;
+                    height: 5px;
+                    transition: 0.5s ease-in-out;
+                    opacity: 0;
+                    background: #50976a;
+                }
+                &:hover {
+                    &::before {
+                        width: 100%;
+                        opacity: 1;
+                    }
+                }
+                &.active::before {
+                    width: 100%;
+                    opacity: 1;
+                }
+                a {
+                    text-decoration: none;
+                    font-weight: 300;
+                    color: #50976a;
+                }
             }
         }
     }
-    .menu{
+    .loginForm {
         position: absolute;
-        top: 30px;
-        left: 100%;
-        width: 40px;
-        height: 40px;
-        background: url("./image/menu.png") #50976a;
-        background-size: 30px;
-        background-repeat: no-repeat;
-        background-position: center;
-        cursor: pointer;
+        right: 0;
+        bottom: 0;
+        height: calc(100% - 25px);
+        padding: 10px;
+        a {
+            text-decoration: none;
+            font-weight: 300;
+            color: #50976a;
+        }
+        .logout {
+            font-weight: 300;
+            color: #50976a;
+            cursor: pointer;
+        }
     }
-    &.open {
-        transform: translateX(0);
+}
+@keyframes animateText {
+    0% {
+        left: 100%;
+    }
+    100% {
+        left: -100%;
     }
 }

@@ -1,0 +1,55 @@
+.home {
+    position: relative;
+    width: 100vw;
+    height: calc(100vh - 70px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background: url("image/bg.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    .textBx {
+        display: flex;
+        div {
+            position: relative;
+            font-size: 5em;
+            color: transparent;
+            -webkit-text-stroke: 0.1vw #383d52;
+            &::before {
+                content: attr(data-text);
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 0;
+                height: 100%;
+                color: #00ffc4;
+                -webkit-text-stroke: 0vw #383d52;
+                overflow: hidden;
+            }
+            &:nth-child(1) {
+                &::before {
+                    animation: animateHome 3s linear forwards;
+                }
+            }
+            &:nth-child(2) {
+                &::before {
+                    animation: animateHome 1s linear forwards;
+                    animation-delay: 3s;
+                }
+            }
+        }
+    }
+}
+@keyframes animateHome {
+    0% {
+        border-right: 2px solid #00ffc4;
+        width: 0%;
+    }
+    99.9% {
+        border-right: 2px solid #00ffc4;
+    }
+    100% {
+        width: 100%;
+    }
+}
