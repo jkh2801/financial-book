@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/financial-book/static/css/main.962dc26c.chunk.css",
+    "main.js": "/financial-book/static/js/main.be053928.chunk.js",
+    "main.js.map": "/financial-book/static/js/main.be053928.chunk.js.map",
+    "runtime-main.js": "/financial-book/static/js/runtime-main.b58c0acf.js",
+    "runtime-main.js.map": "/financial-book/static/js/runtime-main.b58c0acf.js.map",
+    "static/js/2.c19f91a4.chunk.js": "/financial-book/static/js/2.c19f91a4.chunk.js",
+    "static/js/2.c19f91a4.chunk.js.map": "/financial-book/static/js/2.c19f91a4.chunk.js.map",
+    "static/js/3.d3bc2701.chunk.js": "/financial-book/static/js/3.d3bc2701.chunk.js",
+    "static/js/3.d3bc2701.chunk.js.map": "/financial-book/static/js/3.d3bc2701.chunk.js.map",
+    "index.html": "/financial-book/index.html",
+    "static/css/main.962dc26c.chunk.css.map": "/financial-book/static/css/main.962dc26c.chunk.css.map",
+    "static/js/2.c19f91a4.chunk.js.LICENSE.txt": "/financial-book/static/js/2.c19f91a4.chunk.js.LICENSE.txt",
+    "static/media/Home.scss": "/financial-book/static/media/bg.627b1571.jpeg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b58c0acf.js",
+    "static/js/2.c19f91a4.chunk.js",
+    "static/css/main.962dc26c.chunk.css",
+    "static/js/main.be053928.chunk.js"
+  ]
+}
