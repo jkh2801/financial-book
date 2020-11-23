@@ -7,7 +7,6 @@ import HighchartsReact from "highcharts-react-official"
 import Nav from './Nav'
 
 export default function Calendar(props) {
-    console.log("calendar")
     const login = useSelector (state => state.dataReducer.login)
     if(!login) {
         alert("로그인을 해주세요.")
@@ -27,19 +26,14 @@ export default function Calendar(props) {
         )
     })
     const data = useSelector(state => {
-        console.log(year)
-        console.log("state")
-        console.log(state)
         if(state.dataReducer.data[year] === undefined || state.dataReducer.data[year][today.clone().month()+1] === undefined) return (state.dataReducer.data.empty)
         return (state.dataReducer.data[year][today.clone().month()+1])
     })
-    console.log(data)
     const array = Array(32).fill(null)
     data.forEach((n) => {
         if(array[n.day] === null) array[n.day] = []
         array[n.day].push(n)
     })
-    console.log(array)
     const days = () => {
         const week = []
         for(let w = (end.week() - start.week() === 5? start.week():start.week()-1); w <= (end.week() - start.week() === 3? end.week()+1 : end.week()); w++) {
@@ -138,7 +132,6 @@ export default function Calendar(props) {
                     type : e.target.radio.value === "green" ? "g" : "r",
                     price : Number(e.target.price.value)
                 }
-                console.log(addData)
                 if(type === "update" ) dispatch({type:"UPDATE", data: addData, id: id, year: year, month: select.clone().month()+1})
                 else dispatch({type:"DELETE", data: addData, id: id, year: year, month: select.clone().month()+1})
             }
@@ -202,8 +195,6 @@ export default function Calendar(props) {
         })
         rArr.arr.sort((a,b) => b.price - a.price)
         gArr.arr.sort((a,b) => b.price - a.price)
-        console.log(rArr)
-        console.log(gArr)
         const chartData = (data) => {
             let arr = []
             data.arr.forEach((i) => arr.push({name: i.category, sliced: true, y: (i.price/data.total), price: i.price, tot: data.total}))

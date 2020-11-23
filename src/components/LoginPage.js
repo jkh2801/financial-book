@@ -2,7 +2,6 @@ import { useDispatch} from 'react-redux'
 import './LoginPage.scss'
 
 export default function LoginPage(props) {
-    console.log("loginPage")
     const dispatch = useDispatch()
     const login = () => {
         dispatch({type:"LOGIN"})

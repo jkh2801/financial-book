@@ -13,12 +13,9 @@ export default function Chart(props) {
     }
     const data = useSelector(state => state.dataReducer.data)
     const keys = Object.keys(data).filter(i => i !== "empty").sort((a,b) => b-a)
-    console.log(data)
-    console.log(keys)
     const [num, setNum] = useState(0)
     let array = Array(12).fill([])
     Object.keys(data[keys[num]]).forEach((key) => array[key-1] = data[keys[num]][key])
-    console.log(array)
     const chart = () => {
         let gArray = Array(12).fill(0)
         let rArray = Array(12).fill(0)

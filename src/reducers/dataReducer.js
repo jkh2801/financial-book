@@ -5,7 +5,6 @@ const init = {
 }
 const addData = (action) => {
   if(data[action.year] === undefined) {
-    console.log(data)
     Object.assign(data, {[action.year] : { [action.month] : []}})
   }
   if(data[action.year][action.month] === undefined) {
@@ -20,7 +19,6 @@ const updateData = (type, action) => {
   return init
 }
 function memberReducer(state = init, action){
-  console.log(action)
   switch(action.type) {
     case "ADD" : 
        return addData(action)

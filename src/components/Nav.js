@@ -4,7 +4,6 @@ import {Link} from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 
 export default function Nav(props) {
-    console.log("nav")
     const login = useSelector (state => state.dataReducer.login)
     const dispatch = useDispatch()
     const logout = () => {
