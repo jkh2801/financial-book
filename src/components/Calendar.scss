@@ -86,15 +86,22 @@
                         }
                         .picker {
                             display: block;
+                            z-index: 1;
                         }
                     }
                 }
             }
             .dates {
                 box-shadow: 0px 0px 5px rgba(0, 0, 0, 1);
+                position: relative;
+                height: 90%;
                 .row {
                     display: grid;
                     grid-template-columns: repeat(7, 1fr);
+                    height: calc((100% - 26px)/6);
+                    &:first-child {
+                        height: 26px;
+                    }
                     .week {
                         border: 1px solid #222;
                         text-align: center;
@@ -107,7 +114,6 @@
                     }
                     .day {
                         border: 1px solid #222;
-                        height: 65px;
                         &:nth-child(1) {
                             color: #f00;
                         }
@@ -148,7 +154,7 @@
                 height: calc(100% - 20px);
                 background: rgba(0, 0, 0, 0.8);
                 transition: 1s linear;
-                z-index: 1;
+                z-index: 2;
                 display: flex;
                 justify-content: center;
                 align-items: center;
